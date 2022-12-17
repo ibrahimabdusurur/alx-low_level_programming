@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * main entry point
- * description: prints "\"Programming is like building a multilingual puzzle"
- * returns 0
+ * main - prints "\"Programming is like 
+ * building a multilingual puzzle"
+ * Return: 0
  */
 
-int main ()
+int main(void)
 {
 	char str[] = "\"Programming is like building a multilingual puzzle";
 	puts(str);

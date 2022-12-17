@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -c $CFILE -c $(echo $CFILE | cut -d "." -f1).s
+gcc -S $CFILE -c $(echo $CFILE | cut -d "." -f1).s
