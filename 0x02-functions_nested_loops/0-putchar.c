@@ -4,7 +4,7 @@
   * _putchar - prints putcar.
   * Return: 0.
   */
-int _putchar(void)
+int main(void)
 {
 	_putchar('_');
 	_putchar('p');
