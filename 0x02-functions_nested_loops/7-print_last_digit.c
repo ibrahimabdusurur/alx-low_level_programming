@@ -3,6 +3,7 @@
 /**
   * print_last_digit - prints the last digit of a number.
   *
+  * @n: the parameter to be checked.
   * Return: the value of l.
   */
 int print_last_digit(int n)
