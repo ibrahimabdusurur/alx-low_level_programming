@@ -2,6 +2,7 @@
 
 /**
   * print_triangle - prints a triangle, followed by a new line.
+  * @size: the character to be checked.
   */
 void print_triangle(int size)
 {

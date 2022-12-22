@@ -2,6 +2,7 @@
 
 /**
   * print_diagonal - draws a diagonal line on the terminal.
+  * @n: the character to be checked.
   */
 void print_diagonal(int n)
 {
