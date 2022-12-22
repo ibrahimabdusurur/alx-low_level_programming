@@ -11,17 +11,17 @@ int main(void)
 	long n = 612852475143;
 	int m;
 
-	while (m <= n / 2)
+	while (m <= (n / 2))
 	{
-		if (n % 2 == 0)
+		if ((n % 2) == 0)
 		{
 			n = n / 2;
 			continue;
 		}
 
-		for (m = 3; m <= n / 2; m++)
+		for (m = 3; m <= (n / 2); m++)
 		{
-			if (n % m == 0)
+			if ((n % m) == 0)
 			{
 				n = n / m;
 				m = 3;
