@@ -9,7 +9,7 @@
 int main(void)
 {
 	long n = 612852475143;
-	long m;
+	int m;
 
 	while (m <= n / 2)
 	{
