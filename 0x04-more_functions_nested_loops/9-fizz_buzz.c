@@ -20,7 +20,14 @@ int main(void)
 		}
 		else if (n % 5 == 0 && !(n % 15 == 0))
 		{
-			printf("Buzz ");
+			if (n == 100)
+			{
+				printf("Buzz");
+			}
+			else
+			{
+				printf("Buzz ");
+			}
 		}
 		else if (n % 15 == 0)
 		{
