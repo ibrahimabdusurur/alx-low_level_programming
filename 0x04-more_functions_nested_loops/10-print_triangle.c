@@ -22,11 +22,12 @@ void print_triangle(int size)
 				_putchar('#');
 			}
 
+			if (row == n - 1)
+				continue;
+
 			_putchar('\n');
 		}
 	}
-	else
-	{
-		_putchar('\n');
-	}
+
+	_putchar('\n');
 }
