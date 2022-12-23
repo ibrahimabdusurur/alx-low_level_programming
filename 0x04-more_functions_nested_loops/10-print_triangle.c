@@ -1,28 +1,24 @@
 #include "main.h"
 
 /**
-  * print_triangle - prints a triangle, followed by a new line.
-  * @size: the character to be checked.
-  */
+ * print_triangle - Prints a triangle, using the character #.
+ * @size: The size of the triangle.
+ */
 void print_triangle(int size)
 {
-	int row, column1, column2;
+	int r, c;
 
 	if (size > 0)
 	{
-		for (row = 0; row < size; row++)
+		for (r = 1; r <= size; r++)
 		{
-			for (column1 = size - 1; column1 > row; column1--)
-			{
+			for (c = size - r; c > 0; c--)
 				_putchar(' ');
-			}
-			
-			for (column2 = 0; column2 <= row; column2++)
-			{
-				_putchar('#');
-			}
 
-			if (row == n - 1)
+			for (c = 0; c < r; c++)
+				_putchar('#');
+
+			if (r == size)
 				continue;
 
 			_putchar('\n');
