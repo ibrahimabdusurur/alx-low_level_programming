@@ -8,14 +8,14 @@
 int main(void)
 {
 	int n;
-	long sum, fibo1 = 0,fibo2 = 1;
+	long sum, fibo1 = 0, fibo2 = 1;
 
-	for (n = 1; n <= 50; n++)
+	for (n = 0; n < 50; n++)
 	{
 			sum = fibo1 + fibo2;
 			printf("%ld", sum);
 
-			if (n == 50)
+			if (n == 49)
 				continue;
 
 			printf(", ");
