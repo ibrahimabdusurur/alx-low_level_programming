@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-  * main - finds and prints the sum of the even-valued terms of 
+  * main - finds and prints the sum of the even-valued terms of
   *	   fibonacci series, followed by a new line.
   *
   * Return: always 0 (success).
