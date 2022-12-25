@@ -12,16 +12,16 @@ int main(void)
 
 	for (n = 0; n < 50; n++)
 	{
-			sum = fibo1 + fibo2;
-			printf("%ld", sum);
+		sum = fibo1 + fibo2;
+		printf("%ld", sum);
 
-			if (n == 49)
-				continue;
+		if (n == 49)
+			continue;
 
-			printf(", ");
+		printf(", ");
 
-			fibo1 = fibo2;
-			fibo2 = sum;
+		fibo1 = fibo2;
+		fibo2 = sum;
 	}
 	printf("\n");
 
