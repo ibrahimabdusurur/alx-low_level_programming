@@ -31,8 +31,6 @@ char *_strpbrk(char *s, char *accept)
 
 		if (bytes == s + i2)
 			break;
-
-		/*s++;*/
 	}
 
 	return (bytes);
