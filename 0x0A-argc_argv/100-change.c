@@ -8,7 +8,7 @@
   * @argv: An array of pointers to the arguments.
   *
   * Return: If the number of arguments is not exactly one - 1.
-  *	   Otherwise - 0.
+  *	    Otherwise - 0.
   */
 int main(int argc, char *argv[])
 {
@@ -21,18 +21,15 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	if (cents < 0)
-		printf("0\n");
-
-	else
+	if (cents > 0)
 	{
 		coins = (cents / 25) + ((cents % 25) / 10) +
 		       	(((cents % 25) % 10) / 5) +
 			((((cents % 25) % 10) % 5) / 2) +
 		       	((((cents % 25) % 10) % 5) % 2);
 
-		printf("%d\n", coins);
 	}
 
+	printf("%d\n", coins);
 	return (0);
 }
