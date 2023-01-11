@@ -24,9 +24,9 @@ int main(int argc, char *argv[])
 	if (cents > 0)
 	{
 		coins = ((((cents / 25) + ((cents % 25) / 10) +
-		       	(((cents % 25) % 10) / 5)) +
+			(((cents % 25) % 10) / 5)) +
 			((((cents % 25) % 10) % 5) / 2)) +
-		       	((((cents % 25) % 10) % 5) % 2));
+			((((cents % 25) % 10) % 5) % 2));
 
 	}
 
