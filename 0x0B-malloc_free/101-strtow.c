@@ -34,12 +34,15 @@ int word_len(char *str)
 char **strtow(char *str)
 {
 	char **ptr;
-	int index = 0, i = 0, j, letters, words = 0;
+	int index = 0, i = 0, j, letters, words = 0, len = 0;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
 
 	for (; str[index]; index++)
+		len++;
+
+	for (index = 0; index < len; index++)
 	{
 		if (str[index] != ' ')
 		{
