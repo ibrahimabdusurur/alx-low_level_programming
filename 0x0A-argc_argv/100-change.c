@@ -21,10 +21,16 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	coins = (cents / 25) + ((cents % 25) / 10) + (((cents % 25) % 10) / 5) + 
-		((((cents % 25) % 10) % 5) / 2) + ((((cents % 25) % 10) % 5) % 2);
+	if (cents < 0)
+		printf("0\n");
 
-	printf("%d\n", coins);
+	else
+	{
+		coins = (cents / 25) + ((cents % 25) / 10) + (((cents % 25) % 10) / 5) + 
+			((((cents % 25) % 10) % 5) / 2) + ((((cents % 25) % 10) % 5) % 2);
+
+		printf("%d\n", coins);
+	}
 
 	return (0);
 }
