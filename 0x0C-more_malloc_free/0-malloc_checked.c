@@ -9,10 +9,11 @@
   */
 void *malloc_checked(unsigned int b)
 {
-	malloc(b);
+	void *memory;
+	memory = malloc(b);
 
-	if (malloc(b) == NULL)
+	if (memory == NULL)
 		exit(98);
 
-	return (malloc(b));
+	return (memory);
 }
