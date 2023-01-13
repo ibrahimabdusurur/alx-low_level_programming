@@ -7,15 +7,15 @@
   * @s2: the string to be copied from.
   * @n: the number of characters to be copied.
   *
-  * Return: NULL if the function fails.
+  * Return: If the function fails NULL.
   *
-  *	    the new pointer which contains s1, followed by the first
-  *	    n bytes of s2, and null terminated otherwise.
+  *	    otherwise a pointer which contains s1, followed by
+  *	    the first n bytes of s2, and null terminated.
   */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *ptr;
-	unsigned int i, len_s1 = 0, len_s2 = 0;
+	unsigned int i, len = n;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -23,47 +23,23 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (s2 == NULL)
 		s2 = "";
 
-	while (*(s1 + len_s1))
-		len_s1++;
+	for (i = 0; s1[i]; i++)
+		len++;
 
-	while (*(s2 + len_s2))
-		len_s2++;
+	ptr = malloc(sizeof(char) * (len + 1));
 
-	if (n >= len_s2)
-	{
-		ptr = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (ptr == NULL)
+		return (NULL);
 
-		if (ptr == NULL)
-			return (NULL);
+	len = 0;
 
-		for (i = 0; i < len_s1; i++)
-			ptr[i] = s1[i];
+	for (i = 0; s1[i]; i++)
+		ptr[len++] = s1[i];
 
-		for (i = 0; i <= len_s2; i++)
-		{
-			ptr[len_s1] = s2[i];
-			len_s1++;
-		}
-	}
+	for (i = 0; s2[i] && i < n; i++)
+		ptr[len++] = s2[i];
 
-	else if (n < len_s2)
-	{
-		ptr = malloc(sizeof(char) * (len_s1 + n + 1));
-
-		if (ptr == NULL)
-			return (NULL);
-
-		for (i = 0; i < len_s1; i++)
-			ptr[i] = s1[i];
-
-		for (i = 0; i < n; i++)
-		{
-			ptr[len_s1] = s2[i];
-			len_s1++;
-		}
-
-		ptr[len_s1] = '\0';
-	}
+	ptr[len] = '\0';
 
 	return (ptr);
 }
