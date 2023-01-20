@@ -51,33 +51,33 @@ char *_strcopy(char *dest, char *src)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *doggo;
+	dog_t *n_dog;
 
 	if (name == NULL || age < 0 || owner == NULL)
 		return (NULL);
 
-	doggo = malloc(sizeof(dog_t));
-	if (doggo == NULL)
+	n_dog = malloc(sizeof(dog_t));
+	if (n_dog == NULL)
 		return (NULL);
 
-	doggo->name = malloc(sizeof(char) * (_strlen(name) + 1));
-	if (doggo->name == NULL)
+	n_dog->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (n_dog->name == NULL)
 	{
-		free(doggo);
+		free(n_dog);
 		return (NULL);
 	}
 
-	doggo->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-	if (doggo->owner == NULL)
+	n_dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (n_dog->owner == NULL)
 	{
-		free(doggo->name);
-		free(doggo);
+		free(n_dog->name);
+		free(n_dog);
 		return (NULL);
 	}
 
-	doggo->name = _strcopy(doggo->name, name);
-	doggo->age = age;
-	doggo->owner = _strcopy(doggo->owner, owner);
+	n_dog->name = _strcopy(n_dog->name, name);
+	n_dog->age = age;
+	n_dog->owner = _strcopy(n_dog->owner, owner);
 
-	return (doggo);
+	return (n_dog);
 }
