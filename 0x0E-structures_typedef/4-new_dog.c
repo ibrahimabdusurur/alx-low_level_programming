@@ -1,6 +1,10 @@
 #include "dog.h"
 #include <stdlib.h>
 
+char *_strcp(char *dest, char *str);
+int _strlen(char *str);
+dog_t *new_dog(char *name, float age, char *owner);
+
 /**
   * _strcp - copies a string to a new buffer.
   * @str: pointer to the string which is to be copied.
