@@ -13,8 +13,7 @@
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	int calc, num1 = atoi(argv[1]), num2 = atoi(argv[3]);
-	char *operator;
-	operator = argv[2];
+	char *operator = argv[2];
 
 	if (argc != 4)
 	{
@@ -22,7 +21,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	if (get_op_func(operator) == NULL || *operator == '\0')
+	if (argv[2][1] != '\0' || get_op_func(operator) == NULL || *operator == '\0')
 	{
 		printf("Error\n");
 		exit(99);
