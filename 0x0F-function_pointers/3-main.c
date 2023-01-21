@@ -21,7 +21,7 @@ int main(int __attribute__((__unused__)) argc, char *argv[])
 		exit(98);
 	}
 
-	if (argv[2][1] != '\0' || get_op_func(operator) == NULL || *operator == '\0')
+	if (argv[2][1] != '\0' || get_op_func(operator) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
