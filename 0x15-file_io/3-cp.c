@@ -1,6 +1,26 @@
 #include "main.h"
 #include <stdio.h>
 
+void _close(int fd);
+void _cp(char *file_from, char *file_to);
+
+/**
+  * _close - closes fd.
+  * @fd: the fd to be closed.
+  */
+void _close(int fd)
+{
+	int i;
+
+	i = close(fd);
+
+	if (i == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd);
+		exit(100);
+	}
+}
+
 /**
   * _cp - copies the content of a file to another file.
   * @file_from: the file to be copied from.
@@ -8,15 +28,14 @@
   */
 void _cp(char *file_from, char *file_to)
 {
-	int fd1, fd2, r_sz, w_sz, cl_1, cl_2;
+	int fd1, fd2, r_sz, w_sz;
 	char *c;
 
 	c = malloc(sizeof(char) * 1024);
 
 	if (c == NULL)
 	{
-		dprintf(STDERR_FILENO,
-			 "Error: Can't write to %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 
@@ -29,7 +48,7 @@ void _cp(char *file_from, char *file_to)
 		if (fd1 == -1 || r_sz == -1)
 		{
 			dprintf(STDERR_FILENO,
-				 "Error: Can't read from file %s\n", file_from);
+			 "Error: Can't read from file %s\n", file_from);
 			free(c);
 			exit(98);
 		}
@@ -49,23 +68,8 @@ void _cp(char *file_from, char *file_to)
 	}
 
 	free(c);
-	cl_1 = close(fd1);
-
-	if (cl_1 == -1)
-	{
-		dprintf(STDERR_FILENO,
-			 "Error: Can't close fd %d", fd1);
-		exit(100);
-	}
-
-	cl_2 = close(fd2);
-
-	if (cl_2 == -1)
-	{
-		dprintf(STDERR_FILENO,
-			 "Error: Can't close fd %d", fd2);
-		exit(100);
-	}
+	_close(fd1);
+	_close(fd2);
 }
 
 /**
@@ -79,8 +83,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO,
-			 "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
