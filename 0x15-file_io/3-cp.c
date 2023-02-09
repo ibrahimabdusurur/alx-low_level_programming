@@ -22,22 +22,30 @@ void _cp(char *file_from, char *file_to)
 
 	fd1 = open(file_from, O_RDONLY);
 	r_sz = read(fd1, c, 1024);
-
-	if (fd1 == -1 || r_sz == -1)
-	{
-		dprintf(STDERR_FILENO,
-			 "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
-
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	w_sz = write(fd2, c, r_sz);
 
-	if (fd2 == -1 || w_sz == -1)
+	while (r_sz > 0)
 	{
-		dprintf(STDERR_FILENO,
-			 "Error: Can't write to %s\n", file_to);
-		exit(99);
+		if (fd1 == -1 || r_sz == -1)
+		{
+			dprintf(STDERR_FILENO,
+				 "Error: Can't read from file %s\n", file_from);
+			free(c);
+			exit(98);
+		}
+
+		w_sz = write(fd2, c, r_sz);
+
+		if (fd2 == -1 || w_sz == -1)
+		{
+			dprintf(STDERR_FILENO,
+				 "Error: Can't write to %s\n", file_to);
+			free(c);
+			exit(99);
+		}
+
+		r_sz = read(fd1, c, 1024);
+		fd2 = open(file_to, O_WRONLY | O_APPEND);
 	}
 
 	free(c);
@@ -67,12 +75,12 @@ void _cp(char *file_from, char *file_to)
   *
   * Return: 0.
   */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO,
-			 "Usage: cp %s %s\n", argv[1], argv[2]);
+			 "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
