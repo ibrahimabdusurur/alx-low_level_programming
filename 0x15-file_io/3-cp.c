@@ -43,8 +43,7 @@ void _cp(char *file_from, char *file_to)
 	r_sz = read(fd1, c, 1024);
 	fd2 = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while (r_sz > 0)
-	{
+	do {
 		if (fd1 == -1 || r_sz == -1)
 		{
 			dprintf(STDERR_FILENO,
@@ -65,7 +64,8 @@ void _cp(char *file_from, char *file_to)
 
 		r_sz = read(fd1, c, 1024);
 		fd2 = open(file_to, O_WRONLY | O_APPEND);
-	}
+
+	} while (r_sz > 0);
 
 	free(c);
 	_close(fd1);
